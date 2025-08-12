@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blood Donation Request System</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+  <!-- 🔺 Top Header -->
+  <!-- <header>
+    <h1>Blood Donation & Request Portal</h1>
+    <p>Donate Blood, Save Lives 🩸</p>
+  </header> -->
+  <!-- 🔺 Top Header -->
+<header>
+  <h1>Blood Donation & Request Portal</h1>
+  <p>Donate Blood, Save Lives 🩸</p>
+  <p><small>Helpline: +91-9876543210 | support@bloodportal.com</small></p>
+</header>
+
+
+  <!-- 🔻 Main Container -->
+  <div class="main-container">
+
+  
+    <!-- 🔴 Left: Donor Section -->
+<div class="left-section">
+  <h2>Become a Donor</h2>
+  <form id="donor-form">
+    <input type="text" id="donor-name" placeholder="Name" required>
+    <input type="text" id="donor-bloodGroup" placeholder="Blood Group" required>
+    <input type="text" id="donor-city" placeholder="City" required>
+    <input type="text" id="donor-contact" placeholder="Contact Number" required>
+
+    <!-- 🔘 Grouped Buttons -->
+    <div class="button-group">
+      <button type="submit">Add Donor</button>
+      <button type="button" onclick="loadMyDonations()">My Donations</button>
+    </div>
+  </form>
+
+  <!-- ✅ Show My Donations Table -->
+  <table id="my-donor-table"></table>
+
+  <h3>Search Donors</h3>
+  <div class="search-box">
+    <label for="search-bloodGroup">Blood Group:</label>
+    <select id="search-bloodGroup">
+      <option value="All">All Blood Groups</option>
+      <option value="A+">A+</option>
+      <option value="A-">A-</option>
+      <option value="B+">B+</option>
+      <option value="B-">B-</option>
+      <option value="O+">O+</option>
+      <option value="O-">O-</option>
+      <option value="AB+">AB+</option>
+      <option value="AB-">AB-</option>
+    </select>
+
+    <!-- <select id="search-city">
+      <option value="All">All Cities</option>
+      <option value="Nagpur">Nagpur</option>
+      <option value="Pune">Pune</option>
+      <option value="Mumbai">Mumbai</option>
+    </select> -->
+    <label for="search-city">City:</label>
+    <input list="city-options" id="search-city" placeholder="Enter or select city" value="All"  >
+<datalist id="city-options">
+  <option value="All">
+  <option value="Nagpur">
+  <option value="Mumbai">
+  <option value="Pune">
+  <option value="Delhi">
+  <option value="Bangalore">
+  <option value="Hyderabad">
+  <option value="Ahmedabad">
+  <option value="Chennai">
+  <option value="Kolkata">
+  <option value="Surat">
+  <option value="Jaipur">
+  <option value="Indore">
+  <option value="Bhopal">
+  <option value="Lucknow">
+  <!-- You can add more cities or dynamically load them -->
+</datalist>
+
+
+    <button onclick="searchDonors()">Search</button>
+  </div>
+
+  <!-- ✅ Table for searched donors -->
+  <table id="donor-table"></table>
+</div>
+
+
+
+    <!-- 🔵 Right: Request Section -->
+    <div class="right-section">
+      <h2>Request for Blood</h2>
+      <form id="request-form">
+        <input type="text" id="request-name" placeholder="Name" required>
+        <input type="text" id="request-bloodGroup" placeholder="Blood Group" required>
+        <input type="text" id="request-city" placeholder="City" required>
+        <input type="text" id="request-contact" placeholder="Contact Number" required>
+        <input type="text" id="request-reason" placeholder="Reason" required>
+
+        <!-- 🔘 Grouped Buttons -->
+        <div class="button-group">
+          <button type="submit">Add Request</button>
+          <button type="button" onclick="loadMyRequests()">🔁 My Requests</button>
+        </div>
+      </form>
+
+      <table id="my-request-table"></table>
+
+      <!-- <h3>Search Requests</h3>
+      <div class="search-box">
+        <select id="search-req-bloodGroup">
+          <option value="All">All Blood Groups</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+        </select>
+
+        <select id="search-req-city">
+          <option value="All">All Cities</option>
+          <option value="Nagpur">Nagpur</option>
+          <option value="Pune">Pune</option>
+          <option value="Mumbai">Mumbai</option>
+        </select>
+
+        <button onclick="searchRequests()">Search</button>
+      </div> -->
+
+      <h3>Search Requests</h3>
+<div class="search-box">
+  <label for="search-req-bloodGroup">Blood Group:</label>
+  <select id="search-req-bloodGroup">
+    <option value="All">All Blood Groups</option>
+    <option value="A+">A+</option>
+    <option value="A-">A-</option>
+    <option value="B+">B+</option>
+    <option value="B-">B-</option>
+    <option value="O+">O+</option>
+    <option value="O-">O-</option>
+    <option value="AB+">AB+</option>
+    <option value="AB-">AB-</option>
+  </select>
+
+  <label for="search-req-city">City:</label>
+  <input list="city-options" id="search-req-city" placeholder="Enter or select city" value="All">
+  
+  <button onclick="searchRequests()">Search</button>
+</div>
+
+
+      <table id="request-table"></table>
+    </div>
+
+  </div>
+
+  <!-- 🔻 Footer -->
+ <footer>
+  <p>&copy; 2025 Blood Donation Portal</p>
+  <p><small>Developed by Sadique Khan — with passion & purpose 🩸</small></p>
+</footer>
+
+
+  <script src="main.js"></script>
+</body>
+</html>
